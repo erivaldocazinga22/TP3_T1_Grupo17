@@ -42,8 +42,10 @@ int main() {
       }
 
       for (int i = 0; i < n; i++) {
-        printf("Altura da barra %d: ", i);
-        scanf("%d", &A[i]);
+        do {
+          printf("Altura da barra %d: ", i);
+          scanf("%d", &A[i]);
+        } while (A[i] < 0);
       }
 
       A[n] = 0;

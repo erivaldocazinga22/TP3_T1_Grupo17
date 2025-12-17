@@ -47,18 +47,8 @@ int largestArea(int A[], int n) {
 
   int maxArea = 0;
   int i = 0;
-  printf("Altura do topo '-1': %d\n", A[top(&p)]);
-  printf("Valor de n: %d\n", n);
 
   while (i < n) {
-    printf("\n-----------------------  0%d --------------------\n\n", i);
-    printf("Indice: %d\n", i);
-    printf("Altura anterior: %d \t & --%d\n", A[i - 1], A[top(&p)]);
-    printf("Altura actual: %d\n", A[i]);
-
-    printf("Altura do topo: %d\n", A[top(&p)]);
-    printf("Indice do topo: %d\n", A[top(&p)]);
-
     if (isEmpty(&p) || A[i] >= A[top(&p)]) {
       push(&p, i);
       i++;
@@ -66,7 +56,6 @@ int largestArea(int A[], int n) {
       int topIndex = pop(&p);
       int height = A[topIndex];
 
-      printf("\t Altura: %d & \tLaragura: %d\n", A[n - 1], A[n]);
       int width;
       if (isEmpty(&p))
         width = i;
@@ -78,6 +67,17 @@ int largestArea(int A[], int n) {
         maxArea = area;
     }
   }
-
   return maxArea;
 }
+
+/* printf("Altura do topo '-1': %d\n", A[top(&p)]);
+printf("Valor de n: %d\n", n); */
+
+/* printf("\n-----------------------  0%d --------------------\n\n", i);
+    printf("Indice: %d\n", i);
+    printf("Altura anterior: %d \t & --%d\n", A[i - 1], A[top(&p)]);
+    printf("Altura actual: %d\n", A[i]);
+
+    printf("Altura do topo: %d\n", A[top(&p)]);
+    printf("Indice do topo: %d\n", A[top(&p)]); */
+// printf("\t Altura: %d & \tLaragura: %d\n", A[n - 1], A[n]);

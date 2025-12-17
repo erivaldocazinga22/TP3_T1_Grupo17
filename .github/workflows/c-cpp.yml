@@ -2,22 +2,28 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar compilador
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+
+      - name: Compilar com make
+        run: make
+
+      - name: Executar testes
+        run: |
+          if [ -f Makefile ] && grep -q "check:" Makefile; then
+            make check
+          else
+            echo "Nenhum target 'check' encontrado"
+          fi

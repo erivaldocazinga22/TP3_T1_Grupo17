@@ -10,11 +10,18 @@ typedef struct p {
   struct no *top;
 } Pilha;
 
+// inicializar
+void initialize(Pilha *p);
+// vazia
+int isEmpty(Pilha *p);
+// topo da pilha
+int top(Pilha *p);
 // push
-void push(No **topo, int value);
+void push(Pilha *p, int value);
 // pop
-int pop(No **topo);
+int pop(Pilha *p);
 // imprimir
-void print(No *topo);
-
+void print(Pilha *p);
+// maior area
+int largestArea(int A[], int n);
 #endif

@@ -65,8 +65,11 @@ int largestArea(int A[], int n) {
       int area = height * width;
       if (area > maxArea)
         maxArea = area;
+
+      printf("Aria: %d\n", area);
     }
   }
+  printf("Max Aria: %d", maxArea);
   return maxArea;
 }
 
